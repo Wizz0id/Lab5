@@ -1,0 +1,12 @@
+<div class="project-card">
+  <div class="content" (click)="getTasksByProjectId()">
+    <h2>{{ project.name }}</h2>
+    <p>Дата создания: {{ (project.startDate) }}</p> <!--formatDate(project.startDate)-->
+    <p>Дата завершения: {{ (project.endDate) }}</p>
+    <p>Незавершенных задач: {{ count }}</p>
+  </div>
+  <div class="edit-button">
+    <button (click)="(editProject())">Редактировать</button>
+  </div>
+</div>
+

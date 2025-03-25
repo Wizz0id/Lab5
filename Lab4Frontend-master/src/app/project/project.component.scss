@@ -1,0 +1,27 @@
+.project-card {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.content {
+  flex: 1;
+  cursor: zoom-in;
+}
+
+.edit-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.edit-button button {
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+}

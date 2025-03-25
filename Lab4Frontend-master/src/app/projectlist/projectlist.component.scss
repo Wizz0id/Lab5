@@ -1,0 +1,27 @@
+.project-table {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.project-create{
+  margin: 10px 0 10px 0;
+}
+
+.search-form{
+  display: flex;
+  justify-content: center;
+}
+.search {
+  width: 40%;
+}
+
+app-project {
+  box-sizing: border-box;
+  transition-duration: 500ms;
+}
+
+app-project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

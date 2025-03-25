@@ -1,0 +1,12 @@
+<form class="search-form">
+  <input type="text" class="search" placeholder="Поиск по проектам" [formControl]="searchQuery" (keydown.enter)="onSearchKeyDown($event)">>
+</form>
+<button type="submit" (click)="navigateToCreateProject()" class="project-create">Создать проект</button>
+<div class="project-table">
+    <app-project *ngFor="let project of projects"
+                 [project]="project"
+                 [count]="uncompletedTasks.get(project.id)?.toString()">
+    </app-project>
+</div>
+
+
