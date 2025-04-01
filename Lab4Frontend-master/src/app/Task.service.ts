@@ -18,7 +18,7 @@ export class TaskService {
   constructor(private http: HttpClient) {
   }
 
-  getTasks(projectId: number): Observable<Task[]> {
+  getTasks(projectId: string): Observable<Task[]> {
     const url = `${this.taskUrl}/${projectId}/tasks`;
     return this.http.get<Task[]>(url)
       .pipe(
@@ -26,17 +26,9 @@ export class TaskService {
       );
   }
 
-  deleteTask(projectId: number, taskId: number): Observable<void> {
+  deleteTask(projectId: string, taskId: number): Observable<void> {
     const url = `${this.taskUrl}/${projectId}/tasks/${taskId}`;
     return this.http.delete<void>(url).pipe(catchError(this.handleError<void>('deleteTaskById')));
-  }
-
-  getTaskById(projectId: number, taskId: number): Observable<Task> {
-    const url = `${this.taskUrl}/${projectId}/tasks/${taskId}`;
-    return this.http.get<Task>(url)
-      .pipe(
-        catchError(this.handleError<Task>(`getTask id=${taskId}`))
-      );
   }
 
   createTask(projectId: number, task: Task): Observable<Task> {

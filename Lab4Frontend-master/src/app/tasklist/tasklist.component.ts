@@ -1,9 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Task} from '../Task';
 import {TaskService} from '../Task.service';
-import {Router} from '@angular/router';
-import {ProjectDataService} from '../project-data';
-import {Project} from '../Project';
+import {ActivatedRoute, Router} from '@angular/router';
 import {TaskComponent} from '../task/task.component';
 import {NgFor} from '@angular/common';
 
@@ -19,22 +17,28 @@ import {NgFor} from '@angular/common';
 })
 export class TasklistComponent implements OnInit{
   tasks: Task[] = [];
-  project: Project;
+  projectId!: string;
 
-  constructor(private taskService: TaskService, private router: Router, private projectData: ProjectDataService) {
-    this.project = this.projectData.getProject();
+  constructor(private taskService: TaskService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-
-    this.loadTasks();
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      if(id) {
+        this.projectId = id;
+        this.loadTasks();
+      }
+    })
   }
   loadTasks()
   {
-    this.taskService.getTasks(this.project.id).subscribe((tasks) => this.tasks = tasks);
+    this.taskService.getTasks(this.projectId).subscribe((tasks) => this.tasks = tasks);
   }
   deleteTask(taskId:number){
-    this.taskService.deleteTask(this.project.id, taskId).subscribe();
-    this.taskService.getTasks(this.project.id).subscribe((tasks) => this.tasks = tasks);
+    this.taskService.deleteTask(this.projectId, taskId).subscribe({
+        next: () => this.loadTasks()
+      }
+    );
   }
 }

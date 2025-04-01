@@ -8,6 +8,6 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
   standalone: true,
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent{
   title = 'Lab4_Frontend';
 }

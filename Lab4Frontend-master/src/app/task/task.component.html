@@ -1,5 +1,6 @@
 <div class="task">
   <h3>{{ task.name }}</h3>
   <p>{{ task.description }}</p>
-  <button (click)="onDelete()">Удалить</button>
+  <p class="status">Статус: <span class="{{task.completed ? 'completed' : 'in-progress'}}">{{task.completed ? 'Завершено' : 'В процессе'}} </span></p>
+  <button class="delete-button" (click)="onDelete()">Удалить</button>
 </div>

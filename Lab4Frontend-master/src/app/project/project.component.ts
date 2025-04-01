@@ -2,10 +2,13 @@ import {Component, EventEmitter, Input, numberAttribute, Output} from '@angular/
 import {Project} from '../Project';
 import {Router} from '@angular/router';
 import {ProjectDataService} from '../project-data';
+import {DatePipe} from '@angular/common';
 
 @Component({
   selector: 'app-project',
-  imports: [],
+  imports: [
+    DatePipe
+  ],
   templateUrl: './project.component.html',
   standalone: true,
   styleUrl: './project.component.scss'

@@ -4,6 +4,7 @@ import { ProjectlistComponent } from './projectlist/projectlist.component';
 import { NewProjectComponent } from './newProject/newProject.component';
 
 export const routes: Routes = [
+  {path: ``, redirectTo: '/projects', pathMatch: "full"},
   {path: 'projects', component: ProjectlistComponent},
   {path: 'projects/new', component: NewProjectComponent},
   {path: 'projects/:id', component: NewProjectComponent},

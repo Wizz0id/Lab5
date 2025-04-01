@@ -20,7 +20,7 @@ export class ProjectlistComponent implements OnInit {
 
   searchQuery: FormControl = new FormControl("");
 
-  constructor(private projectService: ProjectService, private taskService: TaskService, private router: Router) { //, private datePipe: DatePipe
+  constructor(private projectService: ProjectService, private taskService: TaskService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -30,6 +30,7 @@ export class ProjectlistComponent implements OnInit {
   loadProjectsAndTasks(): void {
     this.projectService.loadProjectsAndTasks(this.searchQuery.value).subscribe(([projects, uncompletedTasks]) => {
       this.projects = projects;
+      console.log(projects);
       this.uncompletedTasks = uncompletedTasks;
     });
   }
@@ -40,10 +41,6 @@ export class ProjectlistComponent implements OnInit {
       this.loadProjectsAndTasks();
     }
   }
-
-  // formatDate(date: string): string {
-  //   return <string>this.datePipe.transform(date, 'dd.MM.yyyy');
-  // }
 
   navigateToCreateProject(): void {
     this.router.navigate(['/projects/new']);

@@ -22,7 +22,7 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
     void deleteByProjectIdAndId(Long projectId, Long id);
     @Modifying
     @Transactional
-    @Query(value = "delete from Task as t where t.project.id = :projectId and completed = true")
+    @Query(value = "delete from Task as t where t.project.id = :projectId and t.completed = true")
     void deleteCompletedTaskByProjectId(Long projectId);
 
     @Modifying

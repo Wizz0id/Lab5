@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Map;
 
 @Repository
 public interface ProjectRepository extends JpaRepository<Project, Long> {
@@ -19,8 +18,9 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
             "name ilike '%' || :str || '%' or description ilike '%' || :str || '%'", nativeQuery = true)
     List<Project> findBySearch(@Param("str") String str);
 
-    @Query(value = "select p.id, count(t.id) from project as p " +
-            "left join task as t on p.id = t.project_id and t.completed = false group by p.id",nativeQuery = true)
+    @Query("SELECT new com.example.Lab2.dto.UncomplitedDTO(p.id, COALESCE(COUNT(t.id), 0)) " +
+            "FROM Project p LEFT JOIN p.tasks t " +
+            "ON p.id = t.project.id AND t.completed = false GROUP BY p.id")
     List<UncomplitedDTO> findUncompletedTasks();
 
     @Modifying

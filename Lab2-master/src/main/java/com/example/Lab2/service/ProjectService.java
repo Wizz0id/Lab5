@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 @Data
 @Service
@@ -29,7 +28,7 @@ public class ProjectService {
     }
 
     public ProjectDTO getProjectsById(long id) {
-        return projectRepository.findAllById(Collections.singleton(id)).stream().map(mapper::convertToDTO).toList().getFirst();
+        return (ProjectDTO) projectRepository.findAllById(Collections.singleton(id)).stream().map(mapper::convertToDTO).toList();
     }
 
     public ProjectDTO createProject(ProjectDTO projectDTO) {

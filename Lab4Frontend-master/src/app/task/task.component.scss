@@ -1,0 +1,62 @@
+.task {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 400px;
+  margin: 20px;
+}
+
+.task:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.task h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.task p {
+  color: #666;
+}
+
+.status {
+  font-weight: bold;
+}
+
+.status span {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.status .completed {
+  background-color: #57ec5c;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.status .in-progress {
+  background-color: #ef827c;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}

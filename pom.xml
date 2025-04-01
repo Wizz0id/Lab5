@@ -7,14 +7,14 @@
         <version>3.0.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-        <groupId>com.example</groupId>
+    <groupId>com.example</groupId>
     <artifactId>Lab5</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Lab5</name>
     <description>Project for Lab5 on Web</description>
     <packaging>pom</packaging>
         <modules>
-            <module>frontend</module>
-            <module>backend</module>
+            <module>Lab4Frontend-master</module>
+            <module>Lab2-master</module>
         </modules>
 </project>

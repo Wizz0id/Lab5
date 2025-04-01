@@ -53,12 +53,15 @@ export class NewProjectComponent implements OnInit {
       const projectData = this.projectForm.value;
       if(this.projectId != 0)
       {
-        this.projectService.updateProject(this.projectId, projectData).subscribe(projectData);
+        this.projectService.updateProject(this.projectId, projectData).subscribe({
+          next: () => this.router.navigate(["/"])
+        });
       }
       else{
-        this.projectService.createProject(projectData).subscribe(projectData);
+        this.projectService.createProject(projectData).subscribe({
+          next: () => this.router.navigate(["/"])
+        });
       }
-      this.router.navigate(["/projects"]);
     }
   }
 }
